@@ -1,0 +1,36 @@
+{
+  "url": "http://127.0.0.1:8080/",
+  "viewports": {
+    "desktop": {
+      "width": 1280,
+      "height": 800,
+      "status": 200,
+      "title": "Haven",
+      "hasCanvas": false,
+      "bodyTextLen": 246,
+      "bodyTextHash": "0141a6ef0f850d9acc1961b1646e081f25b62de9414c99517accbc3d082e3532",
+      "bodyTextPrefix": "YOUR ROOM Haven Open the brown door, sit at the piano desk, rest",
+      "horizontalOverflow": false,
+      "consoleErrors": [],
+      "pageErrors": [],
+      "screenshot": "/workspace/screenshots/app-builder-preview.png"
+    },
+    "mobile": {
+      "width": 390,
+      "height": 844,
+      "status": 200,
+      "title": "Haven",
+      "hasCanvas": false,
+      "bodyTextLen": 246,
+      "bodyTextHash": "0141a6ef0f850d9acc1961b1646e081f25b62de9414c99517accbc3d082e3532",
+      "bodyTextPrefix": "YOUR ROOM Haven Open the brown door, sit at the piano desk, rest",
+      "horizontalOverflow": false,
+      "consoleErrors": [],
+      "pageErrors": [],
+      "screenshot": "/workspace/screenshots/app-builder-preview-mobile.png"
+    }
+  },
+  "brandWarnings": [],
+  "authWarnings": [],
+  "verdictFile": "/workspace/screenshots/app-builder-preview.json"
+}
