@@ -50,7 +50,7 @@ export const PLAYER = {
 
 export const SPOTS = {
   bed: { x: 1.28, z: -1.35, r: 0.95 },
-  desk: { x: -1.32, z: -1.82, r: 0.95 },
+  desk: { x: -1.82, z: -1.82, r: 0.95 },
   balconyChair: { x: 0.15, z: -4.95, r: 0.95 },
   entrance: { x: -0.9, z: 2.1, r: 1.05 },
   balconyDoor: { x: -0.22, z: -3.15, r: 1.05 },
@@ -59,6 +59,6 @@ export const SPOTS = {
 
 export const SIT = {
   bed: { x: 1.28, y: 0.82, z: -1.52, yaw: 0.35, pitch: -0.06 },
-  desk: { x: -1.32, y: 1.12, z: -1.9, yaw: 0, pitch: 0.22 },
+  desk: { x: -1.82, y: 1.12, z: -1.9, yaw: -Math.PI / 2, pitch: 0.22 },
   balconyChair: { x: 0.12, y: 1.22, z: -5.05, yaw: 0.02, pitch: -0.1 },
 } as const;

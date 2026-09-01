@@ -77,7 +77,7 @@ function Laptop() {
 function OfficeChair({ position }: { position: [number, number, number] }) {
   const m = useMats();
   return (
-    <group position={position} rotation={[0, Math.PI, 0]}>
+    <group position={position} rotation={[0, Math.PI*-0.5 , 0]}>
       <mesh position={[0, 0.5, 0]} castShadow material={m.black}>
         <boxGeometry args={[0.46, 0.08, 0.46]} />
       </mesh>
@@ -106,7 +106,7 @@ export function Furniture() {
   return (
     <group>
       {/* Grey desk + drawers */}
-      <group position={[-1.32, 0, -2.58]}>
+      <group position={[-1.82, 0, -1]} rotation={[0, Math.PI*0.5, 0]}>
         <mesh position={[0, 0.75, 0]} castShadow receiveShadow material={m.desk}>
           <boxGeometry args={[1.28, 0.05, 0.62]} />
         </mesh>
@@ -148,18 +148,18 @@ export function Furniture() {
         </mesh>
       </group>
       {atDesk && (
-        <pointLight position={[-0.95, 1.05, -2.45]} intensity={1.8} distance={3.2} decay={2} color="#d7e6f2" />
+        <pointLight position={[-0.95, 1.05, -2.45]} intensity={1.8} distance={3.2} decay={2} color="#e3e6e9" />
       )}
-      <OfficeChair position={[-1.32, 0, -1.92]} />
-
+      <OfficeChair position={[-1., 0, -1]} />
+      
       {/* Felt pinboard + shelves + fairy lights */}
-      <mesh position={[-1.32, 1.55, -3.12]} material={m.felt}>
+      <mesh position={[-2.2, 1.55, -1]} rotation={[0, Math.PI*0.5, 0]} material={m.felt}>
         <planeGeometry args={[1.45, 1.35]} />
       </mesh>
-      <mesh position={[-1.7, 2.28, -3.05]} material={m.metal}>
-        <boxGeometry args={[0.7, 0.04, 0.22]} />
+      <mesh position={[-2.2, 2.28, -0.65]}  rotation={[0, Math.PI*0.5, 0]} material={m.metal}>
+        <boxGeometry args={[0.79, 0.04, 0.22]} />
       </mesh>
-      <mesh position={[-0.95, 2.28, -3.05]} material={m.metal}>
+      <mesh position={[-2.2, 2.28, -1.4]}  rotation={[0, Math.PI*0.5, 0]} material={m.metal}>
         <boxGeometry args={[0.7, 0.04, 0.22]} />
       </mesh>
       <Ivy origin={[-1.32, 1.15, -3.08]} />
@@ -179,17 +179,17 @@ export function Furniture() {
         <pointLight position={[-1.32, 1.9, -2.7]} intensity={4.2} distance={5.5} decay={2} color="#f3e0a8" />
       )}
       {/* sockets */}
-      <mesh position={[-1.55, 1.08, -3.11]}>
+      <mesh position={[-2, 1.2, -0.7]} rotation={[0, Math.PI*0.5, 0]} >
         <boxGeometry args={[0.12, 0.08, 0.02]} />
         <meshStandardMaterial color="#f4f1ea" />
       </mesh>
-      <mesh position={[-1.38, 1.08, -3.11]}>
+      <mesh position={[-2, 1.2, -0.8]} rotation={[0, Math.PI*0.5, 0]}>
         <boxGeometry args={[0.12, 0.08, 0.02]} />
         <meshStandardMaterial color="#f4f1ea" />
       </mesh>
 
       {/* Bucket */}
-      <mesh position={[-2.02, 0.18, -2.05]} castShadow>
+      <mesh position={[-2.02, 0.18, -0]} castShadow>
         <cylinderGeometry args={[0.16, 0.14, 0.36, 14]} />
         <meshStandardMaterial color="#e0c8b0" roughness={0.7} />
       </mesh>
@@ -268,7 +268,7 @@ export function Furniture() {
       </mesh>
 
       {/* Wall decorations */}
-      <mesh position={[1.55, 1.7, -3.12]}>
+      <mesh position={[1.55, 1.7, -3.12]} >
         <circleGeometry args={[0.08, 10]} />
         <meshStandardMaterial color="#3a3a38" roughness={0.6} />
       </mesh>
