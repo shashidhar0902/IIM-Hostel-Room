@@ -165,18 +165,18 @@ export function Furniture() {
       <Ivy origin={[-2.1, 1., -1.]} />
       {lampOn &&
         [
-          [-1.5, 1.98],
-          [-1.5, 2.05],
-          [-1.28, 1.85],
-          [-1.08, 2.1],
-          [-0.88, 1.92],
-        ].map(([x, y], i) => (
-          <mesh key={i} position={[x, y, -3.06]} material={m.lampShade}>
+          [-0.45, 1.98],
+          [-0.65, 2.05],
+          [-0.9, 1.85],
+          [-1.15, 2.1],
+          [-1.4, 1.92],
+        ].map(([z, y], i) => (
+          <mesh key={i} position={[-2.1, y, z]} material={m.lampShade}>
             <sphereGeometry args={[0.025, 8, 8]} />
           </mesh>
         ))}
       {lampOn && (
-        <pointLight position={[-2, 1.5, -1]} intensity={4.2} distance={5.5} decay={2} color="#f3e0a8" />
+        <pointLight position={[-1.85, 1.5, -1]} intensity={4.2} distance={5.5} decay={2} color="#f3e0a8" />
       )}
       {/* sockets */}
       <mesh position={[-2, 1.2, -0.7]} rotation={[0, Math.PI*0.5, 0]} >

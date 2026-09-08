@@ -52,6 +52,7 @@ export function Room() {
   const half = ROOM.doorW / 2;
   const roomDepth = ROOM.maxZ - ROOM.minZ;
   const roomWidth = ROOM.maxX - ROOM.minX;
+  const balconyCenterX = (BALCONY.minX + BALCONY.maxX) / 2;
   const hallDepth = HALL.maxZ - HALL.minZ;
   const hallWidth = HALL.maxX - HALL.minX;
   const e = DOORS.entranceX;
@@ -80,7 +81,7 @@ export function Room() {
       </mesh>
       <mesh
         rotation={[-Math.PI / 2, 0, 0]}
-        position={[0, 0, (BALCONY.minZ + BALCONY.maxZ) / 2]}
+        position={[balconyCenterX, 0, (BALCONY.minZ + BALCONY.maxZ) / 2]}
         receiveShadow
         material={m.concrete}
       >

@@ -47,6 +47,7 @@ function Building({ position, size }: { position: [number, number, number]; size
 
 export function Exterior() {
   const m = useMats();
+  const balconyCenterX = (BALCONY.minX + BALCONY.maxX) / 2;
   const zRail = BALCONY.minZ + 0.08;
   return (
     <group>
@@ -89,14 +90,14 @@ export function Exterior() {
 
       {/* Railing */}
       {[-1.4, -0.7, 0, 0.7, 1.4].map((x) => (
-        <mesh key={x} position={[x, 0.55, zRail]} material={m.metal}>
+        <mesh key={x} position={[balconyCenterX + x, 0.55, zRail]} material={m.metal}>
           <boxGeometry args={[0.04, 1.1, 0.04]} />
         </mesh>
       ))}
-      <mesh position={[0, 1.08, zRail]} material={m.metal}>
+      <mesh position={[balconyCenterX, 1.08, zRail]} material={m.metal}>
         <boxGeometry args={[3.1, 0.045, 0.045]} />
       </mesh>
-      <mesh position={[0, 0.55, zRail]} material={m.metal}>
+      <mesh position={[balconyCenterX, 0.55, zRail]} material={m.metal}>
         <boxGeometry args={[3.1, 0.035, 0.035]} />
       </mesh>
       <mesh position={[BALCONY.minX + 0.04, 0.55, (BALCONY.minZ + BALCONY.maxZ) / 2]} material={m.metal}>
@@ -105,10 +106,10 @@ export function Exterior() {
       <mesh position={[BALCONY.maxX - 0.04, 0.55, (BALCONY.minZ + BALCONY.maxZ) / 2]} material={m.metal}>
         <boxGeometry args={[0.04, 1.1, BALCONY.maxZ - BALCONY.minZ]} />
       </mesh>
-      <mesh position={[0, 0.08, zRail + 0.12]} material={m.concrete}>
+      <mesh position={[balconyCenterX, 0.08, zRail + 0.12]} material={m.concrete}>
         <boxGeometry args={[3.15, 0.16, 0.28]} />
       </mesh>
-      <mesh position={[0.85, 0.22, zRail + 0.1]}>
+      <mesh position={[balconyCenterX + 0.85, 0.22, zRail + 0.1]}>
         <cylinderGeometry args={[0.04, 0.04, 0.18, 8]} />
         <meshStandardMaterial color="#3a5a9a" roughness={0.5} />
       </mesh>
