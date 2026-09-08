@@ -17,7 +17,7 @@ function Ivy({ origin }: { origin: [number, number, number] }) {
     return a;
   }, []);
   return (
-    <group position={origin}>
+    <group position={origin} rotation={[0, Math.PI*0.5, 0]}>
       {pts.map((p, i) => (
         <mesh key={i} position={p} rotation={[0.4, i * 0.3, 0.2]}>
           <sphereGeometry args={[0.045, 6, 5]} />
@@ -162,10 +162,10 @@ export function Furniture() {
       <mesh position={[-2.2, 2.28, -1.4]}  rotation={[0, Math.PI*0.5, 0]} material={m.metal}>
         <boxGeometry args={[0.7, 0.04, 0.22]} />
       </mesh>
-      <Ivy origin={[-1.32, 1.15, -3.08]} />
+      <Ivy origin={[-2.1, 1., -1.]} />
       {lampOn &&
         [
-          [-1.7, 1.9],
+          [-1.5, 1.98],
           [-1.5, 2.05],
           [-1.28, 1.85],
           [-1.08, 2.1],
@@ -176,7 +176,7 @@ export function Furniture() {
           </mesh>
         ))}
       {lampOn && (
-        <pointLight position={[-1.32, 1.9, -2.7]} intensity={4.2} distance={5.5} decay={2} color="#f3e0a8" />
+        <pointLight position={[-2, 1.5, -1]} intensity={4.2} distance={5.5} decay={2} color="#f3e0a8" />
       )}
       {/* sockets */}
       <mesh position={[-2, 1.2, -0.7]} rotation={[0, Math.PI*0.5, 0]} >
@@ -263,7 +263,7 @@ export function Furniture() {
       </mesh>
 
       {/* Whiteboard near entrance */}
-      <mesh position={[-2.18, 1.55, 1.55]} rotation={[0, Math.PI / 2, 0]} material={m.art}>
+      <mesh position={[-0, 1.5, 2]} rotation={[0, Math.PI , 0]} material={m.art}>
         <planeGeometry args={[0.7, 0.95]} />
       </mesh>
 

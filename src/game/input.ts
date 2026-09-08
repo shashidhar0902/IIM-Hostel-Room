@@ -12,7 +12,6 @@ const GAME_CODES = new Set([
   "ArrowDown",
   "ArrowLeft",
   "ArrowRight",
-  "Escape",
 ]);
 
 export type Actions = {
@@ -21,7 +20,6 @@ export type Actions = {
   sprint: boolean;
   jump: boolean;
   interact: boolean;
-  pause: boolean;
   lookX: number;
   lookY: number;
 };
@@ -139,7 +137,6 @@ export const input = {
     }
     const interact = edges.has("KeyE") || edges.has("KeyF");
     const jump = edges.has("Space");
-    const pause = edges.has("Escape");
     edges.clear();
     const lx = lookX * lookSens;
     const ly = lookY * lookSens;
@@ -151,7 +148,6 @@ export const input = {
       sprint: keys.has("ShiftLeft") || keys.has("ShiftRight"),
       jump,
       interact,
-      pause,
       lookX: lx,
       lookY: ly,
     };

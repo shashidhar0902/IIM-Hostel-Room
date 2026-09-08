@@ -141,12 +141,6 @@ export function Player() {
       camera.rotation.set(0, 0, 0);
     }
 
-    if (act.pause) {
-      g.pause();
-      document.exitPointerLock();
-      return;
-    }
-
     yaw.current -= act.lookX * PLAYER.mouse;
     pitch.current -= act.lookY * PLAYER.mouse;
     if (pitch.current > PITCH_LIM) pitch.current = PITCH_LIM;
