@@ -34,11 +34,14 @@ function CeilingFan() {
         <cylinderGeometry args={[0.02, 0.02, 0.22, 8]} />
       </mesh>
       <group ref={blades} position={[0, -0.24, 0]}>
-        {[0, 1, 2].map((i) => (
-          <mesh key={i} rotation={[0, (i * Math.PI * 2) / 3, 0]} position={[0.28, 0, 0]} material={m.darkWood}>
+        {[0, 1, 2].map((i) => {
+          const angle = (i * Math.PI * 2) / 3;
+          return (
+          <mesh key={i} rotation={[0, -angle, 0]} position={[Math.cos(angle) * 0.28, 0, Math.sin(angle) * 0.28]} material={m.darkWood}>
             <boxGeometry args={[0.56, 0.02, 0.12]} />
           </mesh>
-        ))}
+          );
+        })}
       </group>
     </group>
   );

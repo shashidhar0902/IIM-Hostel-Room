@@ -218,20 +218,11 @@ export function Furniture() {
         <mesh position={[0, 0.38, 0.93]} material={m.linen}>
           <boxGeometry args={[0.92, 0.42, 0.06]} />
         </mesh>
-        <mesh position={[-0.12, 0.58, -0.72]} rotation={[0.2, 0.3, 0]} material={m.pillow} castShadow>
+        <mesh position={[-0.2, 0.58, -0.72]} rotation={[0, 0, 0]} material={m.pillow} castShadow>
           <boxGeometry args={[0.38, 0.14, 0.28]} />
         </mesh>
-        <mesh position={[0.2, 0.56, -0.68]} rotation={[0.15, -0.2, 0]} castShadow>
+        <mesh position={[0.2, 0.58, -0.72]} rotation={[0, 0, 0]} material={m.pillow} castShadow>
           <boxGeometry args={[0.36, 0.12, 0.26]} />
-          <meshStandardMaterial color="#d4a07a" roughness={0.85} />
-        </mesh>
-        <mesh position={[0.18, 0.5, 0.15]} rotation={[0.1, 0.4, 0]}>
-          <boxGeometry args={[0.5, 0.06, 0.7]} />
-          <meshStandardMaterial color="#6b3a32" roughness={0.9} />
-        </mesh>
-        <mesh position={[0.42, 0.55, 0.55]} rotation={[0.2, 0, 0.15]}>
-          <boxGeometry args={[0.22, 0.08, 0.7]} />
-          <meshStandardMaterial color="#2a3038" roughness={0.9} />
         </mesh>
       </group>
 
