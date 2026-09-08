@@ -29,7 +29,7 @@ export function worldColliders(open: {
     box(BALCONY.minX - w, BALCONY.minX, BALCONY.minZ, BALCONY.maxZ),
     box(BALCONY.maxX, BALCONY.maxX + w, BALCONY.minZ, BALCONY.maxZ),
     box(BALCONY.minX - w, BALCONY.maxX + w, BALCONY.minZ - w, BALCONY.minZ),
-    box(-1.95, -0.68, -2.95, -2.22), // desk
+    box(-2.13, -1.5, -1.64, -0.36), // desk
     box(0.78, 1.78, -2.7, -0.72), // bed
     box(1.9, 2.5, -0.25, 1.35), // wardrobe
     box(-2.2, -1.85, -2.25, -1.85), // bucket
