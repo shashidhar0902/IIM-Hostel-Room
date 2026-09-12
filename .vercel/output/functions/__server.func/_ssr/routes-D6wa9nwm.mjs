@@ -4,7 +4,7 @@ import { a as DoorOpen, i as Keyboard, n as MousePointer2, o as Armchair, r as L
 import { n as clsx, t as cva } from "../_libs/class-variance-authority+clsx.mjs";
 import { t as twMerge } from "../_libs/tailwind-merge.mjs";
 import { t as create } from "../_libs/zustand.mjs";
-//#region node_modules/.nitro/vite/services/ssr/assets/routes-BTBcIFpM.js
+//#region node_modules/.nitro/vite/services/ssr/assets/routes-D6wa9nwm.js
 var import_react = /* @__PURE__ */ __toESM(require_react());
 var import_jsx_runtime = require_jsx_runtime();
 function cn(...inputs) {
@@ -583,6 +583,7 @@ var ROOM = {
 	wall: .12,
 	doorW: .9
 };
+var FLOOR_Y = 5.6;
 var DOORS = {
 	entranceX: -.9,
 	balconyX: -1.3,
@@ -1137,105 +1138,114 @@ function Exterior() {
 				roughness: .85
 			})]
 		}, x)),
-		[
-			-1.4,
-			-.7,
-			0,
-			.7,
-			1.4
-		].map((x) => /* @__PURE__ */ (0, import_jsx_runtime.jsx)("mesh", {
+		/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("group", {
 			position: [
-				balconyCenterX + x,
-				.55,
-				zRail
+				0,
+				FLOOR_Y,
+				0
 			],
-			material: m.metal,
-			children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("boxGeometry", { args: [
-				.04,
-				1.1,
-				.04
-			] })
-		}, x)),
-		/* @__PURE__ */ (0, import_jsx_runtime.jsx)("mesh", {
-			position: [
-				balconyCenterX,
-				1.08,
-				zRail
-			],
-			material: m.metal,
-			children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("boxGeometry", { args: [
-				3.1,
-				.045,
-				.045
-			] })
-		}),
-		/* @__PURE__ */ (0, import_jsx_runtime.jsx)("mesh", {
-			position: [
-				balconyCenterX,
-				.55,
-				zRail
-			],
-			material: m.metal,
-			children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("boxGeometry", { args: [
-				3.1,
-				.035,
-				.035
-			] })
-		}),
-		/* @__PURE__ */ (0, import_jsx_runtime.jsx)("mesh", {
-			position: [
-				BALCONY.minX + .04,
-				.55,
-				(BALCONY.minZ + BALCONY.maxZ) / 2
-			],
-			material: m.metal,
-			children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("boxGeometry", { args: [
-				.04,
-				1.1,
-				BALCONY.maxZ - BALCONY.minZ
-			] })
-		}),
-		/* @__PURE__ */ (0, import_jsx_runtime.jsx)("mesh", {
-			position: [
-				BALCONY.maxX - .04,
-				.55,
-				(BALCONY.minZ + BALCONY.maxZ) / 2
-			],
-			material: m.metal,
-			children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("boxGeometry", { args: [
-				.04,
-				1.1,
-				BALCONY.maxZ - BALCONY.minZ
-			] })
-		}),
-		/* @__PURE__ */ (0, import_jsx_runtime.jsx)("mesh", {
-			position: [
-				balconyCenterX,
-				.08,
-				zRail + .12
-			],
-			material: m.concrete,
-			children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("boxGeometry", { args: [
-				3.15,
-				.16,
-				.28
-			] })
-		}),
-		/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("mesh", {
-			position: [
-				balconyCenterX + .85,
-				.22,
-				zRail + .1
-			],
-			children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("cylinderGeometry", { args: [
-				.04,
-				.04,
-				.18,
-				8
-			] }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("meshStandardMaterial", {
-				color: "#3a5a9a",
-				roughness: .5
-			})]
+			children: [
+				[
+					-1.4,
+					-.7,
+					0,
+					.7,
+					1.4
+				].map((x) => /* @__PURE__ */ (0, import_jsx_runtime.jsx)("mesh", {
+					position: [
+						balconyCenterX + x,
+						.55,
+						zRail
+					],
+					material: m.metal,
+					children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("boxGeometry", { args: [
+						.04,
+						1.1,
+						.04
+					] })
+				}, x)),
+				/* @__PURE__ */ (0, import_jsx_runtime.jsx)("mesh", {
+					position: [
+						balconyCenterX,
+						1.08,
+						zRail
+					],
+					material: m.metal,
+					children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("boxGeometry", { args: [
+						3.1,
+						.045,
+						.045
+					] })
+				}),
+				/* @__PURE__ */ (0, import_jsx_runtime.jsx)("mesh", {
+					position: [
+						balconyCenterX,
+						.55,
+						zRail
+					],
+					material: m.metal,
+					children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("boxGeometry", { args: [
+						3.1,
+						.035,
+						.035
+					] })
+				}),
+				/* @__PURE__ */ (0, import_jsx_runtime.jsx)("mesh", {
+					position: [
+						BALCONY.minX + .04,
+						.55,
+						(BALCONY.minZ + BALCONY.maxZ) / 2
+					],
+					material: m.metal,
+					children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("boxGeometry", { args: [
+						.04,
+						1.1,
+						BALCONY.maxZ - BALCONY.minZ
+					] })
+				}),
+				/* @__PURE__ */ (0, import_jsx_runtime.jsx)("mesh", {
+					position: [
+						BALCONY.maxX - .04,
+						.55,
+						(BALCONY.minZ + BALCONY.maxZ) / 2
+					],
+					material: m.metal,
+					children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("boxGeometry", { args: [
+						.04,
+						1.1,
+						BALCONY.maxZ - BALCONY.minZ
+					] })
+				}),
+				/* @__PURE__ */ (0, import_jsx_runtime.jsx)("mesh", {
+					position: [
+						balconyCenterX,
+						.08,
+						zRail + .12
+					],
+					material: m.concrete,
+					children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("boxGeometry", { args: [
+						3.15,
+						.16,
+						.28
+					] })
+				}),
+				/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("mesh", {
+					position: [
+						balconyCenterX + .85,
+						.22,
+						zRail + .1
+					],
+					children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("cylinderGeometry", { args: [
+						.04,
+						.04,
+						.18,
+						8
+					] }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("meshStandardMaterial", {
+						color: "#3a5a9a",
+						roughness: .5
+					})]
+				})
+			]
 		})
 	] });
 }
@@ -2753,8 +2763,8 @@ function Player() {
 		sfx.tickAmbient(dt);
 		if (g.phase === "title") {
 			const t = state.clock.elapsedTime;
-			camera.position.set(Math.sin(t * .15) * 3.4, 1.45 + Math.sin(t * .22) * .1, 1.6 + Math.cos(t * .15) * 1.6);
-			camera.lookAt(-.2, 1, -1.2);
+			camera.position.set(Math.sin(t * .15) * 3.4, FLOOR_Y + 1.45 + Math.sin(t * .22) * .1, 1.6 + Math.cos(t * .15) * 1.6);
+			camera.lookAt(-.2, FLOOR_Y + 1, -1.2);
 			fromTitle.current = true;
 			return;
 		}
@@ -2767,7 +2777,7 @@ function Player() {
 			x.current = SPAWN.x;
 			y.current = SPAWN.y;
 			z.current = SPAWN.z;
-			camera.position.set(SPAWN.x, PLAYER.eye, SPAWN.z);
+			camera.position.set(SPAWN.x, FLOOR_Y + PLAYER.eye, SPAWN.z);
 			camera.rotation.order = "YXZ";
 			camera.rotation.set(0, 0, 0);
 		}
@@ -2868,20 +2878,20 @@ function Player() {
 		if (nextPrompt !== g.prompt) useGame.getState().setPrompt(nextPrompt);
 		const pl = placeOf(x.current, z.current);
 		if (pl !== g.place) useGame.getState().setPlace(pl);
-		let eye = PLAYER.eye + y.current + bob.current;
+		let eye = FLOOR_Y + PLAYER.eye + y.current + bob.current;
 		tmp.set(x.current, eye, z.current);
 		camYaw.current = yaw.current;
 		camPitch.current = pitch.current;
 		if (pose === "bed") {
-			tmp.set(SIT.bed.x, SIT.bed.y, SIT.bed.z);
+			tmp.set(SIT.bed.x, FLOOR_Y + SIT.bed.y, SIT.bed.z);
 			camYaw.current = SIT.bed.yaw + yaw.current;
 			camPitch.current = SIT.bed.pitch + pitch.current;
 		} else if (pose === "desk") {
-			tmp.set(SIT.desk.x, SIT.desk.y, SIT.desk.z);
+			tmp.set(SIT.desk.x, FLOOR_Y + SIT.desk.y, SIT.desk.z);
 			camYaw.current = SIT.desk.yaw + yaw.current;
 			camPitch.current = SIT.desk.pitch + pitch.current;
 		} else if (pose === "balconyChair") {
-			tmp.set(SIT.balconyChair.x, SIT.balconyChair.y, SIT.balconyChair.z);
+			tmp.set(SIT.balconyChair.x, FLOOR_Y + SIT.balconyChair.y, SIT.balconyChair.z);
 			camYaw.current = SIT.balconyChair.yaw + yaw.current;
 			camPitch.current = SIT.balconyChair.pitch + pitch.current;
 		}
@@ -2955,24 +2965,27 @@ function CeilingFan() {
 					0,
 					1,
 					2
-				].map((i) => /* @__PURE__ */ (0, import_jsx_runtime.jsx)("mesh", {
-					rotation: [
-						0,
-						i * Math.PI * 2 / 3,
-						0
-					],
-					position: [
-						.28,
-						0,
-						0
-					],
-					material: m.darkWood,
-					children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("boxGeometry", { args: [
-						.56,
-						.02,
-						.12
-					] })
-				}, i))
+				].map((i) => {
+					const angle = i * Math.PI * 2 / 3;
+					return /* @__PURE__ */ (0, import_jsx_runtime.jsx)("mesh", {
+						rotation: [
+							0,
+							-angle,
+							0
+						],
+						position: [
+							Math.cos(angle) * .28,
+							0,
+							Math.sin(angle) * .28
+						],
+						material: m.darkWood,
+						children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("boxGeometry", { args: [
+							.56,
+							.02,
+							.12
+						] })
+					}, i);
+				})
 			})
 		]
 	});
@@ -3425,9 +3438,18 @@ function World() {
 				decay: 2,
 				color: "#fff6e8"
 			}),
-			/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Room, {}),
-			/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Doors, {}),
-			/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Furniture, {}),
+			/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("group", {
+				position: [
+					0,
+					FLOOR_Y,
+					0
+				],
+				children: [
+					/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Room, {}),
+					/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Doors, {}),
+					/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Furniture, {})
+				]
+			}),
 			/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Exterior, {}),
 			/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Dust, {}),
 			/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Player, {})

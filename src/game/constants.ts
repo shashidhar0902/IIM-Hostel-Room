@@ -8,6 +8,8 @@ export const ROOM = {
   doorW: 0.9,
 } as const;
 
+export const FLOOR_Y = 5.6;
+
 export const DOORS = {
   entranceX: -0.9,
   balconyX: -1.3,

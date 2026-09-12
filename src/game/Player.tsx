@@ -2,7 +2,7 @@ import { useFrame, useThree } from "@react-three/fiber";
 import { useEffect, useRef } from "react";
 import * as THREE from "three";
 import { resolveCircle, worldColliders } from "./colliders";
-import { PLAYER, SIT, SPAWN, SPOTS } from "./constants";
+import { FLOOR_Y, PLAYER, SIT, SPAWN, SPOTS } from "./constants";
 import { input } from "./input";
 import { sfx } from "./audio";
 import { useGame, type Pose } from "./store";
@@ -120,8 +120,8 @@ export function Player() {
 
     if (g.phase === "title") {
       const t = state.clock.elapsedTime;
-      camera.position.set(Math.sin(t * 0.15) * 3.4, 1.45 + Math.sin(t * 0.22) * 0.1, 1.6 + Math.cos(t * 0.15) * 1.6);
-      camera.lookAt(-0.2, 1.0, -1.2);
+      camera.position.set(Math.sin(t * 0.15) * 3.4, FLOOR_Y + 1.45 + Math.sin(t * 0.22) * 0.1, 1.6 + Math.cos(t * 0.15) * 1.6);
+      camera.lookAt(-0.2, FLOOR_Y + 1.0, -1.2);
       fromTitle.current = true;
       return;
     }
@@ -136,7 +136,7 @@ export function Player() {
       x.current = SPAWN.x;
       y.current = SPAWN.y;
       z.current = SPAWN.z;
-      camera.position.set(SPAWN.x, PLAYER.eye, SPAWN.z);
+      camera.position.set(SPAWN.x, FLOOR_Y + PLAYER.eye, SPAWN.z);
       camera.rotation.order = "YXZ";
       camera.rotation.set(0, 0, 0);
     }
@@ -253,21 +253,21 @@ export function Player() {
     const pl = placeOf(x.current, z.current);
     if (pl !== g.place) useGame.getState().setPlace(pl);
 
-    let eye = PLAYER.eye + y.current + bob.current;
+    let eye = FLOOR_Y + PLAYER.eye + y.current + bob.current;
     tmp.set(x.current, eye, z.current);
     camYaw.current = yaw.current;
     camPitch.current = pitch.current;
 
     if (pose === "bed") {
-      tmp.set(SIT.bed.x, SIT.bed.y, SIT.bed.z);
+      tmp.set(SIT.bed.x, FLOOR_Y + SIT.bed.y, SIT.bed.z);
       camYaw.current = SIT.bed.yaw + yaw.current;
       camPitch.current = SIT.bed.pitch + pitch.current;
     } else if (pose === "desk") {
-      tmp.set(SIT.desk.x, SIT.desk.y, SIT.desk.z);
+      tmp.set(SIT.desk.x, FLOOR_Y + SIT.desk.y, SIT.desk.z);
       camYaw.current = SIT.desk.yaw + yaw.current;
       camPitch.current = SIT.desk.pitch + pitch.current;
     } else if (pose === "balconyChair") {
-      tmp.set(SIT.balconyChair.x, SIT.balconyChair.y, SIT.balconyChair.z);
+      tmp.set(SIT.balconyChair.x, FLOOR_Y + SIT.balconyChair.y, SIT.balconyChair.z);
       camYaw.current = SIT.balconyChair.yaw + yaw.current;
       camPitch.current = SIT.balconyChair.pitch + pitch.current;
     }

@@ -1,4 +1,4 @@
-import { BALCONY } from "./constants";
+import { BALCONY, FLOOR_Y } from "./constants";
 import { useMats } from "./MatsContext";
 
 function Palm({ position }: { position: [number, number, number] }) {
@@ -89,6 +89,7 @@ export function Exterior() {
       ))}
 
       {/* Railing */}
+      <group position={[0, FLOOR_Y, 0]}>
       {[-1.4, -0.7, 0, 0.7, 1.4].map((x) => (
         <mesh key={x} position={[balconyCenterX + x, 0.55, zRail]} material={m.metal}>
           <boxGeometry args={[0.04, 1.1, 0.04]} />
@@ -113,6 +114,7 @@ export function Exterior() {
         <cylinderGeometry args={[0.04, 0.04, 0.18, 8]} />
         <meshStandardMaterial color="#3a5a9a" roughness={0.5} />
       </mesh>
+      </group>
     </group>
   );
 }

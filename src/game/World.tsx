@@ -8,6 +8,7 @@ import { MatsProvider } from "./MatsContext";
 import { Player } from "./Player";
 import { Room } from "./Room";
 import { useMaterials } from "./textures";
+import { FLOOR_Y } from "./constants";
 
 function Dust() {
   const positions = useMemo(() => {
@@ -63,10 +64,12 @@ export function World() {
         shadow-camera-top={8}
         shadow-camera-bottom={-8}
       />
-      <pointLight position={[0.2, 2.5, -0.3]} intensity={1.4} distance={8} decay={2} color="#fff6e8" />
-      <Room />
-      <Doors />
-      <Furniture />
+      <pointLight position={[0.2, FLOOR_Y + 2.5, -0.3]} intensity={1.4} distance={8} decay={2} color="#fff6e8" />
+      <group position={[0, FLOOR_Y, 0]}>
+        <Room />
+        <Doors />
+        <Furniture />
+      </group>
       <Exterior />
       <Dust />
       <Player />
