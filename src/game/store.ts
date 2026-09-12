@@ -12,6 +12,7 @@ type GameState = {
   entranceOpen: boolean;
   balconyOpen: boolean;
   lampOn: boolean;
+  roomLightOn: boolean;
   muted: boolean;
   coarse: boolean;
   lockEl: HTMLElement | null;
@@ -27,6 +28,7 @@ type GameState = {
   toggleEntrance: () => void;
   toggleBalcony: () => void;
   toggleLamp: () => void;
+  toggleRoomLight: () => void;
   toggleMute: () => void;
 };
 
@@ -38,6 +40,7 @@ export const useGame = create<GameState>((set, get) => ({
   entranceOpen: false,
   balconyOpen: false,
   lampOn: true,
+  roomLightOn: true,
   muted: false,
   coarse: false,
   lockEl: null,
@@ -57,5 +60,6 @@ export const useGame = create<GameState>((set, get) => ({
   toggleEntrance: () => set({ entranceOpen: !get().entranceOpen }),
   toggleBalcony: () => set({ balconyOpen: !get().balconyOpen }),
   toggleLamp: () => set({ lampOn: !get().lampOn }),
+  toggleRoomLight: () => set({ roomLightOn: !get().roomLightOn }),
   toggleMute: () => set({ muted: !get().muted }),
 }));

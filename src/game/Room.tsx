@@ -3,6 +3,7 @@ import { useRef } from "react";
 import * as THREE from "three";
 import { BALCONY, DOORS, HALL, ROOM } from "./constants";
 import { useMats } from "./MatsContext";
+import { useGame } from "./store";
 
 function Wall({
   position,
@@ -49,6 +50,7 @@ function CeilingFan() {
 
 export function Room() {
   const m = useMats();
+  const roomLightOn = useGame((s) => s.roomLightOn);
   const h = ROOM.height;
   const t = ROOM.wall;
   const hy = h / 2;
@@ -172,6 +174,16 @@ export function Room() {
       </mesh>
       <mesh position={[wx, 2.38, ROOM.minZ + 0.1]} rotation={[0, 0, Math.PI / 2]} material={m.metal}>
         <cylinderGeometry args={[0.015, 0.015, 1.5, 8]} />
+      </mesh>
+
+      {/* Main room light switch */}
+      <mesh position={[-0.2, 1.15, ROOM.maxZ - 0.07]} rotation={[0, 0, 0]}>
+        <boxGeometry args={[0.18, 0.28, 0.035]} />
+        <meshStandardMaterial color="#eee8dc" roughness={0.65} />
+      </mesh>
+      <mesh position={[-0.2, 1.15, ROOM.maxZ - 0.045]} rotation={[roomLightOn ? -0.18 : 0.18, 0, 0]}>
+        <boxGeometry args={[0.08, 0.13, 0.025]} />
+        <meshStandardMaterial color={roomLightOn ? "#c69a58" : "#77736b"} roughness={0.5} />
       </mesh>
 
       <CeilingFan />

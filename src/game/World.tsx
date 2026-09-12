@@ -9,6 +9,7 @@ import { Player } from "./Player";
 import { Room } from "./Room";
 import { useMaterials } from "./textures";
 import { FLOOR_Y } from "./constants";
+import { useGame } from "./store";
 
 function Dust() {
   const positions = useMemo(() => {
@@ -45,6 +46,7 @@ function SceneFog() {
 
 export function World() {
   const mats = useMaterials();
+  const roomLightOn = useGame((s) => s.roomLightOn);
   return (
     <MatsProvider value={mats}>
       <SceneFog />
@@ -64,7 +66,9 @@ export function World() {
         shadow-camera-top={8}
         shadow-camera-bottom={-8}
       />
-      <pointLight position={[0.2, FLOOR_Y + 2.5, -0.3]} intensity={1.4} distance={8} decay={2} color="#fff6e8" />
+      {roomLightOn && (
+        <pointLight position={[0.2, FLOOR_Y + 2.5, -0.3]} intensity={1.4} distance={8} decay={2} color="#fff6e8" />
+      )}
       <group position={[0, FLOOR_Y, 0]}>
         <Room />
         <Doors />

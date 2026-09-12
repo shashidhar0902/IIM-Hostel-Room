@@ -130,10 +130,6 @@ export function Furniture() {
         <group position={[0.38, 0.79, 0.06]} rotation={[0, 0.08, 0]}>
           <Laptop />
         </group>
-        <mesh position={[0.02, 0.86, 0.08]} castShadow>
-          <cylinderGeometry args={[0.035, 0.04, 0.2, 12]} />
-          <meshStandardMaterial color="#c5c8cc" metalness={0.7} roughness={0.3} />
-        </mesh>
         <mesh position={[0.28, 0.79, 0.18]} rotation={[0, 0.3, 0]}>
           <boxGeometry args={[0.28, 0.03, 0.18]} />
           <meshStandardMaterial color="#c8c4bc" roughness={0.9} />

@@ -27,12 +27,14 @@ export function TouchControls() {
       lastX = e.clientX;
       lastY = e.clientY;
       lookEl.setPointerCapture(e.pointerId);
+      e.preventDefault();
     };
     const move = (e: PointerEvent) => {
       if (e.pointerId !== lookId) return;
       input.addLook((e.clientX - lastX) * 1.6, (e.clientY - lastY) * 1.6);
       lastX = e.clientX;
       lastY = e.clientY;
+      e.preventDefault();
     };
     const up = (e: PointerEvent) => {
       if (e.pointerId !== lookId) return;
@@ -82,7 +84,7 @@ export function TouchControls() {
 
   return (
     <div className="pointer-events-none absolute inset-0 z-20">
-      <div id="haven-look" className="pointer-events-auto absolute inset-y-0 right-0 w-1/2 touch-none" />
+      <div id="haven-look" className="pointer-events-auto absolute inset-0 touch-none" />
       <div
         ref={stick}
         aria-label="Move"

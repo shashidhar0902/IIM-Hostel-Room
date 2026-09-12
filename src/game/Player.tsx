@@ -38,7 +38,7 @@ function placeOf(x: number, z: number) {
 
 function promptFor(
   id: ReturnType<typeof nearestSpot>,
-  open: { entranceOpen: boolean; balconyOpen: boolean; lampOn: boolean },
+  open: { entranceOpen: boolean; balconyOpen: boolean; lampOn: boolean; roomLightOn: boolean },
   pose: Pose,
 ) {
   if (pose !== "stand") return "E or move to stand";
@@ -49,6 +49,7 @@ function promptFor(
   if (id === "entrance") return open.entranceOpen ? "E close the door" : "E open the door";
   if (id === "balconyDoor") return open.balconyOpen ? "E close the balcony" : "E open the balcony";
   if (id === "lamp") return open.lampOn ? "E turn the fairy lights off" : "E turn the fairy lights on";
+  if (id === "roomLight") return open.roomLightOn ? "E turn the room lights off" : "E turn the room lights on";
   return null;
 }
 
@@ -169,6 +170,9 @@ export function Player() {
         sfx.door();
       } else if (id === "lamp") {
         g.toggleLamp();
+        sfx.lamp();
+      } else if (id === "roomLight") {
+        g.toggleRoomLight();
         sfx.lamp();
       }
     }

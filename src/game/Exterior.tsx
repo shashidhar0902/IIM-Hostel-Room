@@ -61,13 +61,41 @@ export function Exterior() {
         <planeGeometry args={[40, 28]} />
         <meshStandardMaterial color="#7a9a4a" roughness={0.95} />
       </mesh>
-      <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, 0.01, -16]}>
-        <planeGeometry args={[12, 8]} />
-        <meshStandardMaterial color="#c4b07a" roughness={0.9} />
+      <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, 0.01, -17]} receiveShadow>
+        <planeGeometry args={[18, 11]} />
+        <meshStandardMaterial color="#477a45" roughness={0.9} />
+      </mesh>
+      <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, 0.025, -17]}>
+        <planeGeometry args={[16, 9]} />
+        <meshStandardMaterial color="#4f874b" roughness={0.9} />
+      </mesh>
+      <mesh position={[0, 0.035, -17]}>
+        <boxGeometry args={[16, 0.025, 0.035]} />
+        <meshStandardMaterial color="#f2ead6" roughness={0.8} />
+      </mesh>
+      <mesh position={[0, 0.035, -21.5]}>
+        <boxGeometry args={[16, 0.025, 0.035]} />
+        <meshStandardMaterial color="#f2ead6" roughness={0.8} />
+      </mesh>
+      <mesh position={[-8, 0.035, -17]}>
+        <boxGeometry args={[0.035, 0.025, 9]} />
+        <meshStandardMaterial color="#f2ead6" roughness={0.8} />
+      </mesh>
+      <mesh position={[8, 0.035, -17]}>
+        <boxGeometry args={[0.035, 0.025, 9]} />
+        <meshStandardMaterial color="#f2ead6" roughness={0.8} />
+      </mesh>
+      <mesh position={[0, 0.035, -17]}>
+        <boxGeometry args={[0.035, 0.025, 9]} />
+        <meshStandardMaterial color="#f2ead6" roughness={0.8} />
+      </mesh>
+      <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, 0.04, -17]}>
+        <torusGeometry args={[1.15, 0.025, 8, 32]} />
+        <meshStandardMaterial color="#f2ead6" roughness={0.8} />
       </mesh>
 
-      <Building position={[-6.2, 2.2, -11]} size={[2.4, 4.4, 2.2]} />
-      <Building position={[6.4, 2.4, -11.5]} size={[2.2, 4.8, 2]} />
+      <Building position={[-6.2, 2.8, -11]} size={[2.4, 5.6, 2.2]} />
+      <Building position={[6.4, 2.8, -11.5]} size={[2.2, 5.6, 2]} />
       <Palm position={[-3.4, 0, -9.5]} />
       <Palm position={[0.2, 0, -12]} />
       <Palm position={[3.6, 0, -10]} />

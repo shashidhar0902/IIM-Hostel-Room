@@ -57,6 +57,7 @@ export const SPOTS = {
   entrance: { x: -0.9, z: 2.1, r: 1.05 },
   balconyDoor: { x: -1.3, z: -3.15, r: 1.05 },
   lamp: { x: -1.35, z: -1.95, r: 0.6 },
+  roomLight: { x: -0.2, z: 1.75, r: 0.55 },
 } as const;
 
 export const SIT = {
