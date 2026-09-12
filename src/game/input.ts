@@ -104,6 +104,10 @@ export const input = {
     touchX = x;
     touchY = y;
   },
+  setKey(code: string, held: boolean) {
+    if (held) keys.add(code);
+    else keys.delete(code);
+  },
   addLook(dx: number, dy: number) {
     lookX += dx;
     lookY += dy;

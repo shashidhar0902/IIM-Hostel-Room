@@ -124,7 +124,7 @@ export function Overlay() {
           {coarse && (
             <button
               type="button"
-              className="pointer-events-auto absolute right-4 top-4 size-12 rounded-2xl border border-border bg-surface/85 text-sm text-fg"
+              className="pointer-events-auto absolute right-4 top-4 z-30 size-12 rounded-2xl border border-border bg-surface/85 text-sm text-fg backdrop-blur-sm"
               onClick={() => useGame.getState().pause()}
             >
               Pause

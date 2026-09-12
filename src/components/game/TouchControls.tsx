@@ -1,4 +1,5 @@
 import { useEffect, useRef } from "react";
+import { Footprints, Hand, Sparkles } from "lucide-react";
 import { input } from "@/game/input";
 import { useGame } from "@/game/store";
 
@@ -8,6 +9,10 @@ export function TouchControls() {
   const stick = useRef<HTMLDivElement>(null);
   const knob = useRef<HTMLDivElement>(null);
   const pid = useRef<number | null>(null);
+
+  const setHeld = (code: string, held: boolean) => {
+    input.setKey(code, held);
+  };
 
   useEffect(() => {
     if (!coarse || phase !== "playing") return;
@@ -80,7 +85,8 @@ export function TouchControls() {
       <div id="haven-look" className="pointer-events-auto absolute inset-y-0 right-0 w-1/2 touch-none" />
       <div
         ref={stick}
-        className="pointer-events-auto absolute bottom-8 left-6 size-[120px] touch-none rounded-full border border-border bg-surface/50"
+        aria-label="Move"
+        className="pointer-events-auto absolute bottom-6 left-5 size-[132px] touch-none rounded-full border border-border bg-surface/55 shadow-[0_12px_40px_rgba(0,0,0,0.22)] backdrop-blur-sm sm:bottom-8 sm:left-6"
         onPointerDown={onStickDown}
         onPointerMove={moveStick}
         onPointerUp={onStickUp}
@@ -88,19 +94,47 @@ export function TouchControls() {
       >
         <div
           ref={knob}
-          className="absolute left-1/2 top-1/2 size-11 -translate-x-1/2 -translate-y-1/2 rounded-full bg-accent/90"
+          className="absolute left-1/2 top-1/2 size-12 -translate-x-1/2 -translate-y-1/2 rounded-full bg-accent/90 shadow-lg"
         />
       </div>
-      <button
-        type="button"
-        className="pointer-events-auto absolute bottom-8 right-6 flex size-14 touch-none items-center justify-center rounded-full border border-border bg-surface/80 text-sm font-medium text-fg"
-        onPointerDown={(e) => {
-          e.preventDefault();
-          input.pulse("KeyE");
-        }}
-      >
-        E
-      </button>
+      <div className="pointer-events-auto absolute bottom-6 right-5 flex items-end gap-3 sm:bottom-8 sm:right-6">
+        <button
+          type="button"
+          aria-label="Sprint"
+          className="flex size-12 touch-none items-center justify-center rounded-full border border-border bg-surface/80 text-fg shadow-lg backdrop-blur-sm active:bg-accent active:text-accent-fg"
+          onPointerDown={(e) => {
+            e.preventDefault();
+            e.currentTarget.setPointerCapture(e.pointerId);
+            setHeld("ShiftLeft", true);
+          }}
+          onPointerUp={() => setHeld("ShiftLeft", false)}
+          onPointerCancel={() => setHeld("ShiftLeft", false)}
+        >
+          <Footprints className="size-5" aria-hidden />
+        </button>
+        <button
+          type="button"
+          aria-label="Jump"
+          className="flex size-12 touch-none items-center justify-center rounded-full border border-border bg-surface/80 text-fg shadow-lg backdrop-blur-sm active:bg-accent active:text-accent-fg"
+          onPointerDown={(e) => {
+            e.preventDefault();
+            input.pulse("Space");
+          }}
+        >
+          <Sparkles className="size-5" aria-hidden />
+        </button>
+        <button
+          type="button"
+          aria-label="Interact"
+          className="flex size-16 touch-none items-center justify-center rounded-full border border-accent bg-accent text-accent-fg shadow-lg"
+          onPointerDown={(e) => {
+            e.preventDefault();
+            input.pulse("KeyE");
+          }}
+        >
+          <Hand className="size-6" aria-hidden />
+        </button>
+      </div>
     </div>
   );
 }
