@@ -1,0 +1,17 @@
+node_modules/
+
+# Build output
+dist/
+build/
+.next/
+out/
+coverage/
+
+# Local framework and deployment caches
+.tanstack/
+.vercel/
+
+# Local environment files
+.env
+.env.*
+!.env.example
